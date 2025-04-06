@@ -1,6 +1,3 @@
-EXEC silver.load_silver;
-
-
 /*
 ==========================================================================
 Stored Procedure: Load Silver Layer (Bronze > Silver)
@@ -81,10 +78,10 @@ BEGIN
 
                         -- Loading silver.crm_prd_info
                         SET @start_time = GETDATE();
-                                PRINT '>> Truncation Table: silver.crm_prd_info'
-                                TRUNCATE TABLE silver.crm_cust_info;
+                                PRINT '>> Truncating Table: silver.crm_prd_info'
+                                TRUNCATE TABLE silver.crm_prd_info;
 
-                                PRINT '>> Insterting Data Into: silver.crm_prd_info'
+                                PRINT '>> Inserting Data Into: silver.crm_prd_info'
                                 INSERT INTO silver.crm_prd_info (
                                 prd_id,
                                 cat_id,
@@ -121,7 +118,7 @@ BEGIN
                                 PRINT '>> Truncating Table: silver.crm_sales_details'
                                 TRUNCATE TABLE silver.crm_sales_details;
 
-                                PRINT '>> Insterting Data Into: silver.crm_csales_details'
+                                PRINT '>> Insterting Data Into: silver.crm_sales_details'
                                 INSERT INTO silver.crm_sales_details (
                                         sls_ord_num,
                                         sls_prd_key,
@@ -195,10 +192,10 @@ BEGIN
 
                         -- Loading silver.erp_loc_a101
                         SET @start_time = GETDATE();
-                                PRINT 'Truncating Table: silver.erp_loc_a101'
+                                PRINT '>> Truncating Table: silver.erp_loc_a101'
                                 TRUNCATE TABLE silver.erp_loc_a101;
 
-                                PRINT 'Inserting Data Into: silver.erp_loc_a101'
+                                PRINT '>> Inserting Data Into: silver.erp_loc_a101'
                                 INSERT INTO silver.erp_loc_a101
                                 (cid, cntry)
 
@@ -216,10 +213,10 @@ BEGIN
 
                         -- Loading silver.erp_px_cat_g1v2
                         SET @start_time = GETDATE();
-                                PRINT 'Truncating Table: silver.erp_px_cat_g1v2'
+                                PRINT '>> Truncating Table: silver.erp_px_cat_g1v2'
                                 TRUNCATE TABLE silver.erp_px_cat_g1v2;
 
-                                PRINT 'Inserting Data Into: silver.erp_px_cat_g1v2'
+                                PRINT '>> Inserting Data Into: silver.erp_px_cat_g1v2'
                                 INSERT INTO silver.erp_px_cat_g1v2 (
                                         id,
                                         cat,
